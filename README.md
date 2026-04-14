@@ -18,6 +18,7 @@ ZEUS-3D is an Ultra-Large Virtual Screening (ULVS) pipeline designed for efficie
 - PyTorch
 - RDKit
 - Schrödinger Suite (for Glide docking)
+- ChemFP
 - Other dependencies: h5py, numpy, torch_scatter
 
 ## Project Structure
