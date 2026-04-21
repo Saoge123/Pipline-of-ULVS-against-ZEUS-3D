@@ -122,7 +122,7 @@ The pipeline generates the following outputs:
 
 ## Performance
 
-- **Scalability**: Can process hundreds of millions of molecules
+- **Scalability**: Can process hundreds of billions of molecules
 - **Speed**: GPU-accelerated screening for rapid processing
 - **Accuracy**: Integrates Glide for state-of-the-art binding affinity prediction
 
