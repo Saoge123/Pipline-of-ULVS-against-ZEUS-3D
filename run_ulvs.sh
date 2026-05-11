@@ -1,0 +1,6 @@
+python ./ulvs_pipline/1_multi_target_mp_gpu_stream.py --data_dir /home/jyy/ZEUS-3D_pipline/mol_lib_demo --pkt_emb_root ./pocket_files --target TYK2-JH2 --work_path ./ulvs_results --threshold 0.2
+python ./ulvs_pipline/2_filter_mol.py --work_path ./ulvs_results/TYK2-JH2 --mol_reported ./pocket_files/TYK2-JH2/TYK2-JH2_BindingDB_ligand.csv --nBits 2048 --NxN_threshold 0.4 --separator '	' --substructures '[]' --N_sele 2500000
+python ./ulvs_pipline/3_cluster_butina.py --work_path ./ulvs_results/TYK2-JH2 --nBits 2048 --sim_threshold 0.5 --run_topN 2500000
+python ./ulvs_pipline/4_get_mols_for_reranking.py --work_path ./ulvs_results/TYK2-JH2 --nBits 2048 --sim_threshold 0.5 --rep_type first --n_sele 150000
+python ./ulvs_pipline/5_glide_score.py --work_path ./ulvs_results/TYK2-JH2 --pocket_file_path ./pocket_files/TYK2-JH2 --mol_file ./ulvs_results/TYK2-JH2/1_results_of_all_chunks/all_rep_mols_rand_0.5-2048Bits-butina_smi0.5-rep_first_rand-rep_first_rand150.0K.smiK.smi  --bff OPLS_4 --lig_bff 14 --n_jobs 64
+python ./ulvs_pipline/6_make_excel.py --docking_path ./ulvs_results/TYK2-JH2 --save_name ./ulvs_results/TYK2-JH2/TYK2-JH2_results.xlsx --n_head 10000 --score_cutoff -5.0 --einternal_cutoff 5.0 --occur_times 3 --sort_key r_i_docking_score
